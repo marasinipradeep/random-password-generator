@@ -27,3 +27,34 @@ This is  an application that generates a random password, based on criteria sele
 -You can view live demo clicking on link above.
 
 ## Screenshots of final outputs
+
+# Default browser screen  
+
+![Initial Screen](Assets/images/screenshot/initialScreen.png)
+
+# Enter Length of Characters
+
+![Enter Length](Assets/images/screenshot/askingtoEnterLength.png)
+
+# Prompt to include small Characters
+
+![include small letter](Assets/images/screenshot/includeSmallLetter.png)
+
+# Prompt to include capital Characters
+
+![include capital letter](Assets/images/screenshot/includeCapitalLetter.png)
+
+# Prompt to include numbers
+
+![include numbers](Assets/images/screenshot/includeNumbers.png)
+
+# Prompt to include special Characters
+
+![include small letter](Assets/images/screenshot/includeSpecial.png)
+
+# Output genereted pasword
+
+![include small letter](Assets/images/screenshot/output.png)
+
+
+
