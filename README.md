@@ -5,18 +5,18 @@ Strong and unique  password generator
 
 ## Basic Overview - [Live Demo](https://marasinipradeep.github.io/random-password-generator/.)
 
-This is  an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This is  an application that generates a random password, based on criteria selected by an user. This app mobile responsive, runs in the browser and has polished UI (user interface).
 
 #### Features
 
- - Click button to generate a password.
- - Presented with a series of prompts for password criteria
- - Select which criteria to include in the password
- - Prompted for the length of the password at least 8 characters and no more than    128  characters
- - Prompted for character types to include in the password lowercase, uppercase, numeric, and/or special characters
- - Each prompt input is validated and at least one character type is selected
- - Password is generated that matches the selected criteria
- - Generated password is either displayed on the page
+ - Click Generate password button to generate a password.
+ - Prompted for the length of the password at least 8 characters and no more than 128  characters.
+ - If valid length is given then presented with a series of prompts for password criteria.
+ - Prompted for character types to include in the password lowercase, uppercase, numeric, and/or special characters.
+ - Select OK to include in the password or cancel to exclude in the password.
+ - At least one character type should be selected otherwise there will be validation error message.
+ - Password is generated at the end that matches the selected criteria.
+ - Generated password is displayed on the page.
 
 
  ## Getting started

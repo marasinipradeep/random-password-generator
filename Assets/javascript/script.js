@@ -1,16 +1,15 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
 
-
+//Creating an object for character
 var character = {
   capitalLetter: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   smallLetter: 'abcdefghijklmnopqrstuvwxyz',
   numbers: '0123456789',
-  specialCharacters: '!@#$%^&*=-_'
+  specialCharacters: '!\"#$%&\'()*+,-./:;<=>?@[\]^_\`{|}~'
 }
 
 
@@ -19,72 +18,61 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-
+  console.log("data type check" + typeof password)
 }
 
 function generatePassword() {
-  //Validating  user input length 
+  //Function call checkLengthValidation()
   var password = checkLengthValidation(length);
   return password
 }
 
-//Check length of password at begining
+//Here creating function that checks length of passwords and returns the value
 function checkLengthValidation(parselength) {
-
-  var length = prompt("Enter the length of password");
+  var length = prompt("Enter the length of password.\nThe password length must be between (8 - 128) ");
   var parselength = parseInt(length);
-
-  if (parselength < 8 || parselength > 128) {
+  if (parselength < 8 || parselength > 128 || isNaN(parselength)) {
     alert("Enter a valid number between 8 to 128")
     return "Invalid Input"
-  }
-
-  else if (isNaN(parselength)) {
-    alert("Length can not be string");
-    return "Invalid Input"
-
   }
   else {
     //Function call to include different user reequirement.
     return propmtMessageForUser(parselength);
   }
-  return
+  return "Invalid Input"
 }
 
-//Prompting through different series of question to meet user conditions
-function propmtMessageForUser(parselength){
+//Here creating function that includes variables which will take in user input
+function propmtMessageForUser(parselength) {
 
-    var capitalletterConfirmBox = confirm("capital letter??")
-    var smallletterConfirmBox = confirm("small letter??")
-    var numConfirmBox = confirm("number??");
-    var symConfirmBox = confirm("symbol??");
-    var characters = "";
+  var smallletterConfirmBox = confirm("Do you want to include Small letters (a-z).\nPress Ok to include or Cancel to exclude.")
+  var capitalletterConfirmBox = confirm("Do you want to include Capital letters (A-Z).\nPress Ok to include or Cancel to exclude.")
+  var numConfirmBox = confirm("Do you want to include Numbers (0-9).\nPress Ok to include or Cancel to exclude.");
+  var symConfirmBox = confirm("Do you want to include Special characters(!\"#$%&\'()*+,-./:;<=>?@[\]^_\`{|}~).\nPress Ok to include or Cancel to exclude.");
+  var characters = "";
 
-   if(!capitalletterConfirmBox && !smallletterConfirmBox && !numConfirmBox && !symConfirmBox){
-     alert("Select at least one character")
-     return "Invalid Selection!! Try Again"
-   }
-   else{
-
-     //Ternary operator to check wether  include given characters or not.
-    (capitalletterConfirmBox) ? characters += character.capitalLetter : '';
+  if (!capitalletterConfirmBox && !smallletterConfirmBox && !numConfirmBox && !symConfirmBox) {
+    alert("Select at least one character")
+    return "Invalid Selection!! Try Again"
+  }
+  else {
+    //Ternary operator to check wether  include given characters or not.
     (smallletterConfirmBox) ? characters += character.smallLetter : '';
+    (capitalletterConfirmBox) ? characters += character.capitalLetter : '';
     (numConfirmBox) ? characters += character.numbers : '';
     (symConfirmBox) ? characters += character.specialCharacters : '';
-
-    //Calling for function password which iterates length provided by user
-    return password(parselength, characters); 
+    //Function call
+    return password(parselength, characters);
   }
 }
 
-//Function to iterate through users length requirement
+//Here creating function that takes 2 parameter, iterates through gets random value and stores in variable pwd
 function password(l, characters) {
-  console.log("Inside Function : " + l);
   var pwd = '';
   for (var i = 0; i < l; i++) {
     console.log("Inside Function before loop pwd is:" + pwd);
     pwd = pwd + characters.charAt(Math.floor(Math.random() * characters.length));
-    console.log("Inside Function loop pwd is:" + pwd);
+    console.log("Inside password pwd is:" + pwd);
   }
   return pwd;
 }
