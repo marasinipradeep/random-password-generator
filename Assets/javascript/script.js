@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
 
-//Creating an object for character
+//Creating an object of type character
 var character = {
   capitalLetter: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   smallLetter: 'abcdefghijklmnopqrstuvwxyz',
@@ -12,13 +12,11 @@ var character = {
   specialCharacters: '!\"#$%&\'()*+,-./:;<=>?@[\]^_\`{|}~'
 }
 
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-  console.log("data type check" + typeof password)
 }
 
 function generatePassword() {
@@ -56,7 +54,7 @@ function propmtMessageForUser(parselength) {
     return "Invalid Selection!! Try Again"
   }
   else {
-    //Ternary operator to check wether  include given characters or not.
+    //Ternary operator to include given characters or not.
     (smallletterConfirmBox) ? characters += character.smallLetter : '';
     (capitalletterConfirmBox) ? characters += character.capitalLetter : '';
     (numConfirmBox) ? characters += character.numbers : '';
@@ -70,7 +68,6 @@ function propmtMessageForUser(parselength) {
 function password(l, characters) {
   var pwd = '';
   for (var i = 0; i < l; i++) {
-    console.log("Inside Function before loop pwd is:" + pwd);
     pwd = pwd + characters.charAt(Math.floor(Math.random() * characters.length));
     console.log("Inside password pwd is:" + pwd);
   }
